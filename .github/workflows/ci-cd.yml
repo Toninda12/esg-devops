@@ -28,4 +28,4 @@ jobs:
           cache: maven
 
       - name: Compilar e executar testes
-        run: ./mvnw --batch-mode clean verify
+        run: bash ./mvnw --batch-mode clean verify
