@@ -1,0 +1,30 @@
+
+name: CI/CD - ESG DevOps
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build e testes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: '25'
+          cache: maven
+
+      - name: Compilar e executar testes
+        run: ./mvnw --batch-mode clean verify
