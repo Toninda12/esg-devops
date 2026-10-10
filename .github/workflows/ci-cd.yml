@@ -67,3 +67,25 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  staging:
+    name: Preparar ambiente de staging
+    runs-on: ubuntu-latest
+    needs: publish-image
+    environment: staging
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Registrar imagem para staging
+        run: echo "Imagem disponível para staging: ghcr.io/toninda12/esg-devops:latest"
+
+  production:
+    name: Preparar ambiente de production
+    runs-on: ubuntu-latest
+    needs: staging
+    environment: production
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Registrar imagem para produção
+        run: echo "Imagem disponível para production: ghcr.io/toninda12/esg-devops:latest"
