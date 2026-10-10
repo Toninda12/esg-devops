@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Registrar imagem para staging
-        run: echo "Imagem disponível para staging: ghcr.io/toninda12/esg-devops:latest"
+        run: 'echo "Imagem disponível para staging: ghcr.io/toninda12/esg-devops:latest"'
 
   production:
     name: Preparar ambiente de production
@@ -88,4 +88,4 @@ jobs:
 
     steps:
       - name: Registrar imagem para produção
-        run: echo "Imagem disponível para production: ghcr.io/toninda12/esg-devops:latest"
+        run: 'echo "Imagem disponível para production: ghcr.io/toninda12/esg-devops:latest"'
