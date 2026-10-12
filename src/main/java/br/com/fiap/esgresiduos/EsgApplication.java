@@ -1,13 +1,11 @@
-package esg_devops;
+package br.com.fiap.esgresiduos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EsgDevopsApplication {
-
+public class EsgApplication {
     public static void main(String[] args) {
-        SpringApplication.run(EsgDevopsApplication.class, args);
+        SpringApplication.run(EsgApplication.class, args);
     }
-
 }
